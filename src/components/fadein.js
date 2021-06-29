@@ -1,5 +1,5 @@
 import React from "react"
-import classNames from "classNames"
+import classNames from "classnames"
 
 const FadeIn = ({ children }) => {
   let delay = 100
