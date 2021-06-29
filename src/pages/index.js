@@ -4,6 +4,8 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import Nav from "../components/nav"
+import Featured from "../components/featured"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -23,11 +25,13 @@ const BlogIndex = ({ data, location }) => {
     )
   }
 
+  const [latestBlog] = data.allMarkdownRemark.nodes
   return (
     <Layout location={location} title={siteTitle}>
+      <Nav />
       <Seo title="All posts" />
-      <Bio />
-      <ol style={{ listStyle: `none` }}>
+      <Featured featured={latestBlog} />
+      {/* <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
 
@@ -58,7 +62,7 @@ const BlogIndex = ({ data, location }) => {
             </li>
           )
         })}
-      </ol>
+      </ol> */}
     </Layout>
   )
 }
@@ -82,6 +86,7 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
+          layout
         }
       }
     }

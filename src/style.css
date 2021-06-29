@@ -1,6 +1,4 @@
-/* CSS Custom Properties Definitions */
-
-:root {
+CSS Custom Properties Definitions :root {
   --maxWidth-none: "none";
   --maxWidth-xs: 20rem;
   --maxWidth-sm: 24rem;
@@ -242,7 +240,7 @@ a:focus {
 
 .global-wrapper {
   margin: var(--spacing-0) auto;
-  max-width: var(--maxWidth-wrapper);
+  /* max-width: var(--maxWidth-wrapper); */
   padding: var(--spacing-10) var(--spacing-5);
 }
 
