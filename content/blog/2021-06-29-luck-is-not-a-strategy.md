@@ -2,7 +2,7 @@
 layout: blog
 title: Luck is not a strategy
 date: 2021-06-29T08:29:07.132Z
-image: /img/dashboard.png
+image: https://www.wpbeginner.com/wp-content/uploads/2018/07/whatisblog.png
 ---
 Advice from people who have gotten lucky is a tricky thing.
 
