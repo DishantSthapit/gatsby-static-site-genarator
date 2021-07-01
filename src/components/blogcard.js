@@ -1,17 +1,20 @@
 import React from "react"
 
-const BlogCard = ({ title }) => {
+const BlogCard = ({ title, date, image }) => {
   return (
-    <Card style={{ width: "18rem" }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
-      <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Button variant="secondary-outline">Go somewhere</Button>
-      </Card.Body>
-    </Card>
+    <div className="blog-card">
+      <div className="blog-card-image">
+        <img src={image}></img>
+      </div>
+      <div className="blog-card-data">
+        <h5 className="blog-card-heading">{title}</h5>
+        <span className="blog-card-date">{date}</span>
+        <button class="button">
+          <span>Learn More </span>
+        </button>
+      </div>
+    </div>
   )
 }
+
+export default BlogCard
