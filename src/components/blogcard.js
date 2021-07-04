@@ -9,7 +9,7 @@ const BlogCard = ({ title, date, image }) => {
       <div className="blog-card-data">
         <h5 className="blog-card-heading">{title}</h5>
         <span className="blog-card-date">{date}</span>
-        <button class="button">
+        <button className="button">
           <span>Learn More </span>
         </button>
       </div>
