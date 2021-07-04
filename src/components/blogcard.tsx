@@ -1,6 +1,12 @@
 import React from "react"
 
-const BlogCard = ({ title, date, image }) => {
+type TProps = {
+  title: string;
+  date: string;
+  image: string;
+}
+
+const BlogCard = ({ title, date, image }:TProps) => {
   return (
     <div className="blog-card">
       <div className="blog-card-image">

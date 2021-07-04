@@ -13,7 +13,7 @@ const Nav = () => {
   ]
   return (
     <div className="nav-wrapper">
-      {navMenu && navMenu.map(item => <h4 key={item.name}>{item.name}</h4>)}
+      {navMenu && navMenu.map(item => <a key={item.name}>{item.name}</a>)}
     </div>
   )
 }
