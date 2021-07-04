@@ -27,9 +27,11 @@ const Layout = ({ location, title, children }) => {
         <div className="global-header-wrapper">
           <div className="subscribe">Subscribe</div>
           <header className="global-header">{header}</header>
-          <Button variant="outline-secondary" className="login">
-            Login
-          </Button>
+          <Link to={`${location.href}/admin`}>
+            <Button variant="outline-secondary" className="login">
+              Login
+            </Button>
+          </Link>
         </div>
         <main>{children}</main>
         <footer className="footer">
