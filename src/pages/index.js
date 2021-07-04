@@ -1,12 +1,12 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Nav from "../components/nav"
 import Featured from "../components/featured"
-import BlogCard from "../components/blogcard"
+import PostSection from "../components/postSection"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -32,49 +32,14 @@ const BlogIndex = ({ data, location }) => {
       <Nav />
       <Seo title="All posts" />
       <Featured featured={latestBlog} />
-      <h2 className="section-heading">Latest</h2>
-      <div className="home-blog-wrapper">
-        {posts &&
-          posts
-            .slice(0, 3)
-            .map(post => (
-              <BlogCard
-                title={post.frontmatter.title}
-                date={post.frontmatter.date}
-                image={post.frontmatter.image}
-              />
-            ))}
-      </div>
-      <h2 className="section-heading">
-        <span>Recent</span>
-      </h2>
-      <div className="home-blog-wrapper">
-        {posts &&
-          posts
-            .slice(0, 3)
-            .map(post => (
-              <BlogCard
-                title={post.frontmatter.title}
-                date={post.frontmatter.date}
-                image={post.frontmatter.image}
-              />
-            ))}
-      </div>
-      <h2 className="section-heading">
-        <span>Featured</span>
-      </h2>
-      <div className="home-blog-wrapper">
-        {posts &&
-          posts
-            .slice(0, 3)
-            .map(post => (
-              <BlogCard
-                title={post.frontmatter.title}
-                date={post.frontmatter.date}
-                image={post.frontmatter.image}
-              />
-            ))}
-      </div>
+      <PostSection
+        heading="Latest"
+        subheading="Latest blogs in your fingertips"
+      />
+      <PostSection
+        heading="Featured"
+        subheading="Featured blogs in your fingertips"
+      />
       {/* <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
