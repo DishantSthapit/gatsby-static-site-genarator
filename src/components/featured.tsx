@@ -1,13 +1,27 @@
 import * as React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import FadeIn from "../components/fadein"
 import BackgroundImage from "gatsby-background-image"
+
+
+type TProps = {
+  featured: {
+    frontmatter: {
+      title: string;
+      date: string;
+    },
+    fields: {
+      slug: string
+    }
+  }
+}
 
 const Featured = ({
   featured: {
     frontmatter: { title, date },
+    fields: { slug }
   },
-}) => {
+}: TProps) => {
   const data = useStaticQuery(graphql`
     query {
       file(relativePath: { eq: "background.jpeg" }) {
@@ -27,7 +41,7 @@ const Featured = ({
         <div className="featured-blog-inner">
           <h3>{title}</h3>
           <div>{date}</div>
-          <a>Continue Reading..</a>
+          <Link to={slug}>Continue Reading..</Link>
         </div>
       </FadeIn>
     </BackgroundImage>

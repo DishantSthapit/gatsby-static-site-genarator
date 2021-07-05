@@ -1,11 +1,11 @@
 import * as React from "react"
-import { PageProps, Link, graphql,useStaticQuery } from "gatsby"
+import { PageProps, Link, graphql, useStaticQuery } from "gatsby"
 import BlogCard from "../components/blogcard"
 
 type SataicType = {
-  allMarkdownRemark:{
+  allMarkdownRemark: {
     nodes: {
-      excerpt : HTMLElement | null;
+      excerpt: HTMLElement | null;
       fields: {
         slug: string;
       }
@@ -20,11 +20,11 @@ type SataicType = {
 }
 
 type TProps = {
-  heading:string;
-  subheading:string
+  heading: string;
+  subheading: string
 }
 
-const PostSection = ({heading,subheading}: TProps) => {
+const PostSection = ({ heading, subheading }: TProps) => {
 
   const { allMarkdownRemark } = useStaticQuery<SataicType>(
     graphql`
@@ -53,9 +53,9 @@ const PostSection = ({heading,subheading}: TProps) => {
     <div>
       <div className="section-wrapper">
         <h2 className="section-heading">{heading}</h2>
-          <div className="section-subheading">
-            {subheading}
-          </div>
+        <div className="section-subheading">
+          {subheading}
+        </div>
         <div className="home-blog-wrapper">
           {posts &&
             posts
@@ -66,11 +66,12 @@ const PostSection = ({heading,subheading}: TProps) => {
                   title={post.frontmatter.title}
                   date={post.frontmatter.date}
                   image={post.frontmatter.image}
+                  slug={post.fields.slug}
                 />
               ))}
         </div>
       </div>
-     </div>
+    </div>
   )
 }
 
