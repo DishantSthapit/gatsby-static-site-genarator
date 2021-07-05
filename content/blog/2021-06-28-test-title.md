@@ -2,7 +2,7 @@
 layout: Blog Blog Blog Blog Blog Blog Blog Blog
 title: I'm A 'Real' Australian And I'm Sick Of Being Served Racism With My Dinner
 date: 2021-06-28T10:13:26.267Z
-image: /img/eaton-content-thumb-2.jpg
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Chinese_characters_logo.svg/1200px-Chinese_characters_logo.svg.png
 ---
 My parents, like many other first-generation immigrants, migrated to Australia from China in pursuit of a better life. They faced hardships that I will never have to experience thanks to the generational assimilation of Chinese immigrants that now solidifies me as a 'real' Australian.
 
