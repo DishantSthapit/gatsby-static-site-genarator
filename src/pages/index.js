@@ -1,11 +1,12 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import { Link } from "gatsby"
 import Nav from "../components/nav"
 import Featured from "../components/featured"
+import PostSection from "../components/postSection"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -15,54 +16,28 @@ const BlogIndex = ({ data, location }) => {
     return (
       <Layout location={location} title={siteTitle}>
         <Seo title="All posts" />
-        <Bio />
         <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
+          No blog posts found. You can login and add the blog through the
+          headless CMS{" "}
+          <Link to="https://inspiring-easley-acf800.netlify.app/admin/#/">
+            here
+          </Link>
         </p>
       </Layout>
     )
   }
 
   const [latestBlog] = data.allMarkdownRemark.nodes
+  console.log(latestBlog)
   return (
     <Layout location={location} title={siteTitle}>
       <Nav />
       <Seo title="All posts" />
       <Featured featured={latestBlog} />
-      {/* <ol style={{ listStyle: `none` }}>
-        {posts.map(post => {
-          const title = post.frontmatter.title || post.fields.slug
-
-          return (
-            <li key={post.fields.slug}>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <header>
-                  <h2>
-                    <Link to={post.fields.slug} itemProp="url">
-                      <span itemProp="headline">{title}</span>
-                    </Link>
-                  </h2>
-                  <small>{post.frontmatter.date}</small>
-                </header>
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
-                    }}
-                    itemProp="description"
-                  />
-                </section>
-              </article>
-            </li>
-          )
-        })}
-      </ol> */}
+      <PostSection
+        heading="Latest"
+        subheading="Latest blogs in your fingertips"
+      />
     </Layout>
   )
 }
@@ -85,8 +60,8 @@ export const pageQuery = graphql`
         frontmatter {
           date(formatString: "MMMM DD, YYYY")
           title
-          description
           layout
+          image
         }
       }
     }

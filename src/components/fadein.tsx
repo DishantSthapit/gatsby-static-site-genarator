@@ -1,7 +1,8 @@
 import React from "react"
 import classNames from "classnames"
 
-const FadeIn = ({ children }) => {
+
+const FadeIn:React.FC = ({ children }) => {
   let delay = 100
 
   const [fadeState, setFadeState] = React.useState(false)

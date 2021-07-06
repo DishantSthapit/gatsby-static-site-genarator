@@ -1,7 +1,6 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
@@ -12,27 +11,34 @@ const BlogPostTemplate = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Seo
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
-      />
+      <Seo title={post.frontmatter.title} />
       <article
         className="blog-post"
         itemScope
         itemType="http://schema.org/Article"
       >
-        <header>
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
+        <div
+          style={{
+            backgroundImage: `url(${post.frontmatter.image})`,
+            height: "350px",
+            backgroundSize: "cover",
+            marginTop: "10px",
+          }}
+        ></div>
+        <header
+          style={{ marginBottom: "30px", borderBottom: "1px solid #cecece" }}
+        >
+          <h1 style={{ fontSize: "28px" }} itemProp="headline">
+            {post.frontmatter.title}
+          </h1>
+          <p style={{ fontSize: "12px" }}>{post.frontmatter.date}</p>
         </header>
         <section
+          style={{ marginTop: "10px" }}
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
         <hr />
-        <footer>
-          <Bio />
-        </footer>
       </article>
       <nav className="blog-post-nav">
         <ul
@@ -84,7 +90,8 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
-        description
+        layout
+        image
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {
