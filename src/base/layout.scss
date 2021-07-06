@@ -17,7 +17,7 @@
 
     .home-blog-wrapper {
       display: grid;
-      grid-gap: 5px;
+      grid-gap: 25px;
       grid-template-columns: repeat(auto-fill, minmax(245px, 1fr));
       margin-top: 10px;
     }
@@ -32,10 +32,16 @@
       width: 100%;
       margin-top: 20px;
       border-bottom: 1px solid #cecece;
-      > div {
+      > a {
         margin: auto 0;
         color: rgb(91, 91, 91);
-        font-size: 12px;
+        text-decoration: unset;
+        &:hover {
+          text-decoration: underline;
+        }
+        > div {
+          font-size: 12px;
+        }
       }
 
       .subscribe {
