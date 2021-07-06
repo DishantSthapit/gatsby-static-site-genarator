@@ -59,7 +59,6 @@ const PostSection = ({ heading, subheading }: TProps) => {
         <div className="home-blog-wrapper">
           {posts &&
             posts
-              .slice(0, 3)
               .map(post => (
                 <BlogCard
                   key={post.frontmatter.title}
